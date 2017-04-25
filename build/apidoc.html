@@ -72,15 +72,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.json-socket.json_socket">
-            function <span class="apidocSignatureSpan">json-socket.</span>json_socket
-            <span class="apidocSignatureSpan">(socket)</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.json-socket.sendSingleMessage">
             function <span class="apidocSignatureSpan">json-socket.</span>sendSingleMessage
             <span class="apidocSignatureSpan">(port, host, message, callback)</span>
@@ -93,54 +84,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.json-socket.sendSingleMessageAndReceive">
             function <span class="apidocSignatureSpan">json-socket.</span>sendSingleMessageAndReceive
             <span class="apidocSignatureSpan">(port, host, message, callback)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.json-socket.toString">
-            function <span class="apidocSignatureSpan">json-socket.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.json-socket.sendSingleMessage">module json-socket.sendSingleMessage</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.json-socket.sendSingleMessage.sendSingleMessage">
-            function <span class="apidocSignatureSpan">json-socket.</span>sendSingleMessage
-            <span class="apidocSignatureSpan">(port, host, message, callback)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.json-socket.sendSingleMessageAndReceive">module json-socket.sendSingleMessageAndReceive</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.json-socket.sendSingleMessageAndReceive.sendSingleMessageAndReceive">
-            function <span class="apidocSignatureSpan">json-socket.</span>sendSingleMessageAndReceive
-            <span class="apidocSignatureSpan">(port, host, message, callback)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.json-socket.toString">module json-socket.toString</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.json-socket.toString.toString">
-            function <span class="apidocSignatureSpan">json-socket.</span>toString
-            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -176,28 +119,6 @@
 
 
     <h2>
-        <a href="#apidoc.element.json-socket.json_socket" id="apidoc.element.json-socket.json_socket">
-        function <span class="apidocSignatureSpan">json-socket.</span>json_socket
-        <span class="apidocSignatureSpan">(socket)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">json_socket = function (socket) {
-    this._socket = socket;
-    this._contentLength = null;
-    this._buffer = &#x27;&#x27;;
-    this._closed = false;
-    socket.on(&#x27;data&#x27;, this._onData.bind(this));
-    socket.on(&#x27;connect&#x27;, this._onConnect.bind(this));
-    socket.on(&#x27;close&#x27;, this._onClose.bind(this));
-    socket.on(&#x27;err&#x27;, this._onError.bind(this));
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
         <a href="#apidoc.element.json-socket.sendSingleMessage" id="apidoc.element.json-socket.sendSingleMessage">
         function <span class="apidocSignatureSpan">json-socket.</span>sendSingleMessage
         <span class="apidocSignatureSpan">(port, host, message, callback)</span>
@@ -215,23 +136,7 @@
         socket.sendEndMessage(message, callback);
     });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-The second method is `JsonSocket.sendSingleMessage`. It sends a single message and closes the connection instantly.
-Use this if you need to send a server a message, but you don&#x27;t need any response.
-
-```javascript
-var JsonSocket = require(&#x27;json-socket&#x27;);
-
-JsonSocket.<span class="apidocCodeKeywordSpan">sendSingleMessage</span>(port, host, {type: &#x27;ping&#x27;}, function(err) {
-    if (err) {
-        //Something went wrong
-        throw err;
-    }
-    console.log(&#x27;Pinged &#x27;+host+&#x27; on port &#x27;+port);
-});
-````
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -266,157 +171,6 @@ JsonSocket.<span class="apidocCodeKeywordSpan">sendSingleMessage</span>(port, ho
         });
     });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-The second method is `JsonSocket.sendSingleMessageAndReceive`. It sends a single message, waits for a single response
-message from the server and closes the connection right after.
-Use this if you need to send a server a message, and get a response, but you don&#x27;t need the connection to stay open.
-
-```javascript
-var JsonSocket = require(&#x27;json-socket&#x27;);
-
-JsonSocket.<span class="apidocCodeKeywordSpan">sendSingleMessageAndReceive</span>(port, host, {type: &#x27;ping&#x27;}, function
-(err, message) {
-    if (err) {
-        //Something went wrong
-        throw err;
-    }
-    console.log(&#x27;Server said: &#x27;+message.type); //E.g. pong
-});
-````
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.json-socket.toString" id="apidoc.element.json-socket.toString">
-        function <span class="apidocSignatureSpan">json-socket.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.json-socket.sendSingleMessage" id="apidoc.module.json-socket.sendSingleMessage">module json-socket.sendSingleMessage</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.json-socket.sendSingleMessage.sendSingleMessage" id="apidoc.element.json-socket.sendSingleMessage.sendSingleMessage">
-        function <span class="apidocSignatureSpan">json-socket.</span>sendSingleMessage
-        <span class="apidocSignatureSpan">(port, host, message, callback)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">sendSingleMessage = function (port, host, message, callback) {
-    callback = callback || function(){};
-    var socket = new JsonSocket(new net.Socket());
-    socket.connect(port, host);
-    socket.on(&#x27;error&#x27;, function(err) {
-        callback(err);
-    });
-    socket.on(&#x27;connect&#x27;, function() {
-        socket.sendEndMessage(message, callback);
-    });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-The second method is `JsonSocket.sendSingleMessage`. It sends a single message and closes the connection instantly.
-Use this if you need to send a server a message, but you don&#x27;t need any response.
-
-```javascript
-var JsonSocket = require(&#x27;json-socket&#x27;);
-
-JsonSocket.<span class="apidocCodeKeywordSpan">sendSingleMessage</span>(port, host, {type: &#x27;ping&#x27;}, function(err) {
-    if (err) {
-        //Something went wrong
-        throw err;
-    }
-    console.log(&#x27;Pinged &#x27;+host+&#x27; on port &#x27;+port);
-});
-````
-...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.json-socket.sendSingleMessageAndReceive" id="apidoc.module.json-socket.sendSingleMessageAndReceive">module json-socket.sendSingleMessageAndReceive</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.json-socket.sendSingleMessageAndReceive.sendSingleMessageAndReceive" id="apidoc.element.json-socket.sendSingleMessageAndReceive.sendSingleMessageAndReceive">
-        function <span class="apidocSignatureSpan">json-socket.</span>sendSingleMessageAndReceive
-        <span class="apidocSignatureSpan">(port, host, message, callback)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">sendSingleMessageAndReceive = function (port, host, message, callback) {
-    callback = callback || function(){};
-    var socket = new JsonSocket(new net.Socket());
-    socket.connect(port, host);
-    socket.on(&#x27;error&#x27;, function(err) {
-        callback(err);
-    });
-    socket.on(&#x27;connect&#x27;, function() {
-        socket.sendMessage(message, function(err) {
-            if (err) {
-                socket.end();
-                return callback(err);
-            }
-            socket.on(&#x27;message&#x27;, function(message) {
-                socket.end();
-                if (message.success === false) {
-                    return callback(new Error(message.message));
-                }
-                callback(null, message)
-            });
-        });
-    });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-The second method is `JsonSocket.sendSingleMessageAndReceive`. It sends a single message, waits for a single response
-message from the server and closes the connection right after.
-Use this if you need to send a server a message, and get a response, but you don&#x27;t need the connection to stay open.
-
-```javascript
-var JsonSocket = require(&#x27;json-socket&#x27;);
-
-JsonSocket.<span class="apidocCodeKeywordSpan">sendSingleMessageAndReceive</span>(port, host, {type: &#x27;ping&#x27;}, function
-(err, message) {
-    if (err) {
-        //Something went wrong
-        throw err;
-    }
-    console.log(&#x27;Server said: &#x27;+message.type); //E.g. pong
-});
-````
-...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.json-socket.toString" id="apidoc.module.json-socket.toString">module json-socket.toString</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.json-socket.toString.toString" id="apidoc.element.json-socket.toString.toString">
-        function <span class="apidocSignatureSpan">json-socket.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
