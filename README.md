@@ -1,4 +1,7 @@
-# api documentation for  [json-socket (v0.2.1)](https://github.com/sebastianseilund/node-json-socket#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-json-socket.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-json-socket) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-json-socket.svg)](https://travis-ci.org/npmdoc/node-npmdoc-json-socket)
+# npmdoc-json-socket
+
+#### basic api documentation for  [json-socket (v0.2.1)](https://github.com/sebastianseilund/node-json-socket#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-json-socket.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-json-socket) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-json-socket.svg)](https://travis-ci.org/npmdoc/node-npmdoc-json-socket)
+
 #### An easy way to send JSON over TCP using sockets.
 
 [![NPM](https://nodei.co/npm/json-socket.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/json-socket)
@@ -61,7 +64,8 @@
     "scripts": {
         "test": "mocha --recursive test"
     },
-    "version": "0.2.1"
+    "version": "0.2.1",
+    "bin": {}
 }
 ```
 
